@@ -12,6 +12,7 @@ RUN set -ex && \
     cd /tmp && \
     wget $OVERTURE_URL && \
     unzip overture-linux-amd64.zip && \
+    mkdir -p /usr/local/bin/overture && \
     mv overture-linux-amd64 /usr/local/bin/overture && \
     rm -rf /tmp/*
 

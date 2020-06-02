@@ -55,7 +55,7 @@
     "Alternative": "/etc/overture/ip_network_alternative_sample"
   },
   "DomainFile": {
-    "Primary": "./domain_primary_sample",
+    "Primary": "/etc/overture/domain_primary_sample",
     "Alternative": "/etc/overture/gfwlist.txt"
   },
   "HostsFile": "/etc/overture/hosts_sample",

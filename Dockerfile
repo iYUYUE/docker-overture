@@ -4,8 +4,10 @@
 
 FROM alpine
 
-ARG OVERTURE_VER=v1.6.1
+ARG OVERTURE_VER=v1.4
 ARG OVERTURE_URL=https://github.com/shawn1m/overture/releases/download/$OVERTURE_VER/overture-linux-amd64.zip
+
+COPY root /
 
 RUN set -ex && \
     apk add --no-cache ca-certificates && \
@@ -14,14 +16,13 @@ RUN set -ex && \
     unzip overture-linux-amd64.zip && \
     mkdir -p /usr/local/bin/overture && \
     mv overture-linux-amd64 /usr/local/bin/overture && \
+    wget https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt && \
+    wget https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt && \
+    mv *.txt /etc/overture && \
     rm -rf /tmp/*
-
-COPY root /
 
 RUN chmod +x /usr/local/bin/overture/overture-linux-amd64
 
 USER nobody
 
-CMD ["/usr/local/bin/overture/overture-linux-amd64", "-c", "/etc/overture.json"]
-
-
+CMD ["/usr/local/bin/overture/overture-linux-amd64", "-c", "/etc/overture/overture.json"]

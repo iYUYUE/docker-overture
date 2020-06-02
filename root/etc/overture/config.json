@@ -62,7 +62,7 @@
   "OnlyPrimaryDNS": false,
   "IPv6UseAlternativeDNS": false,
   "IPNetworkFile": {
-    "Primary": "/etc/overture/china_ip_list.txt",
+    "Primary": "/etc/overture/china_ip_list.txt"
   },
   "DomainFile": {
     "Alternative": "/etc/overture/gfwlist.txt"
